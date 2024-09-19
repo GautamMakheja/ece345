@@ -132,7 +132,7 @@ Total Pages: \pageref{LastPage}\\[2ex]
         However, there's no reason why the tokens pulled from the bucket
         had to be 1 and 4. Since you're choosing 2 tokens from a 
         set of 5 tokens without replacement, there are $\binom{5}{2}$
-        possible ways to create 2 red tuples.\\
+        possible combinations 2 red tuples.\\
 
         After forming these red tuples, there are now 3 indices left.
         Each of these indices could be paired with either 
@@ -161,15 +161,15 @@ Total Pages: \pageref{LastPage}\\[2ex]
 
         Because there are 2 possible outcomes for each of the 
         3 remaining tokens (Heads or Tails), the number of possible 
-        ways to form the green and blue tuples is ${2}^{3}$.\\
+        combinations of green and blue tuples is ${2}^{3}$.\\
 
-        Since there are $\binom{5}{2}$ ways to form the red tuples, 
-        and ${2}^{3}$ possible ways to form the green and blue tuples,
-        there are $\binom{5}{2} * {2}^{3}$ possible ways to create
+        Since there are $\binom{5}{2}$ combinations of red tuples, 
+        and ${2}^{3}$ combinations of green and blue tuples,
+        there are $\binom{5}{2} * {2}^{3}$ possible combinations of
         5 index-color tuples where 2 have the color red\\
 
         This means that there are $\binom{5}{2} * {2}^{3}$ 
-        possible ways to create a sequence of 5 colored dashes
+        possible sequences of 5 colored dashes
         (from the colors red, green, and blue) 
         where two of those dashes are red\\
 
@@ -177,8 +177,77 @@ Total Pages: \pageref{LastPage}\\[2ex]
         reason why we had to have exactly two red dashes. We could have
         had no red dashes, or five red dashes, or any number in between\\
 
-        When we choose to have k red dashes, we end up with 
-        $\binom{5}{2}$
+        Let's define k as the number of red tuples (where $k \in [0, 5]$).
+        for each k, there are $\binom{5}{k}$ possible combinations
+        of k red tuples, and since there are 5-k remaining indices, we'll end up
+        with ${2}^{{5}-{k}}$ unique combinations or green and blue
+        tuples. In other words, there are $\binom{5}{k} * {2}^{5-k}$\\
+
+        Every unique combination of tuples will have some amount of 
+        red tuples, with the exact amount being between 0 and 5 
+        inclusive.\\
+
+        As a result, if we were to sum up all the possible combinations
+        of tuples as the number of red tuples (k) 
+        goes from 0 to 5, then we would end up with every
+        possible combination of 5 tuples formed from the colors red, green,
+        and blue.\\
+
+        This sum would look like:\\
+
+        ($\binom{5}{0} * {2}^{5}) + (\binom{5}{1} * {2}^{4}) + 
+        (\binom{5}{2} * {2}^{3}) + (\binom{5}{3} * {2}^{2}) +
+        (\binom{5}{4} * {2}^{1}) + (\binom{5}{5} * {2}^{0}$)\\
+
+        Which is the same as:
+
+        \[
+        \sum_{k=0}^{5} \binom{5}{k} 2^{5 - k}
+        \]
+
+        Due to the equivalency of unique tuple combinations and
+        unique RGB color sequences, this sum is also equal to the 
+        number of unique sequences of 5 colored dashes.\\
+
+        However, there's no reason why we had to choose 5 as our number
+        of tuples. This process works just as well for making
+        n unique color-index tuples using red, green, and blue.\\
+
+        If we choose to make n unique color-index tuples, and we choose
+        to make k red tuples, then there are $\binom{n}{k}$ unique
+        combinations of red tuples, and ${2}^{n-k}$ unique combinations
+        of green and blue tuples.\\
+
+        this means there are $\binom{n}{k} * {2}^{5-k}$ unique 
+        combinations of n tuples where k tuples are red, and 
+
+        \[
+        \sum_{k=0}^{n} \binom{n}{k} 2^{n - k}
+        \]
+
+        unique combinations of n color-index tuples as a whole\\
+
+        Again, due to the equivalency between tuple combinations 
+        and RGB sequences, this formula also describes the number
+        of unique sequences formed from red, green, and blue dashes.\\
+
+        And with a little bit of algebra, it's easy to see that:\\ 
+        
+        \begin{align*}
+            \binom{n}{k} &= \frac{n!}{k!(n-k)!} \\
+                         &= \frac{n!}{(n-k)!(k)!} \\
+                         &= \frac{n!}{(n-k)!(n - n + k)!} \\
+                         &= \frac{n!}{(n-k)!(n-(n-k))!} \\
+                         &= \binom{n}{n-k}
+        \end{align*}
+
+        which makes intuitive sense because the number of ways
+        to choose k elements to use out of a set of n 
+        (without replacement) is the same as the number of ways to 
+        choose n - k elements not to use out of a set of n 
+        (without replacement)\\ 
+
+
         
 
     \end{proof}
