@@ -89,7 +89,97 @@ Total Pages: \pageref{LastPage}\\[2ex]
         each dash is either red, green, or blue.\\
 
         since each dash was one of three possible choices, there are 
-        ${3}^{n}$ possible sequences that you can draw with this process.
+        ${3}^{n}$ possible sequences of colored dashes 
+        that you can draw with this process.\\\\
+
+        Each colored dash has 2 properties, its color, and its index in
+        the sequence.\\
+        For example, if n = 5, one possible order could be RGGRB.
+        in this case, you could represent this unique order as\\\\
+        (G, 3), (R, 1), (G, 2), (R, 4), (B, 5)\\\\ 
+        where, in each tuple, the letter is the color and
+        the number is the index of that color in the sequence.\\
+
+        Clearly the index of each colored dash is going to be a 
+        positive integer between 1 and n\\
+
+        Because each unique sequence of n colored dashes can be represented
+        by a unique, unordered list of color-index tuples, any procedure that can
+        generate this list of tuples is mathematically identical to 
+        the process of drawing the sequences by choosing colored balls.\\
+
+        Now imagine you had a bucket with n numbered tokens in it. Each
+        token has number written on it ranging from 1 to n.\\ 
+        
+        One possible way to create an unordered list of color-index 
+        tuples (and as a result, a way to create the original sequence
+        of colored dashes) would be to first decide how many red tuples
+        you wanted ahead of time, create those tuples by randomly selecting
+        indices from the bucket, and then randomly choose between
+        green and blue as you made the remaining tuples\\
+
+        Again, assuming n = 5, you could start out by saying that you
+        will have exactly 2 red tuples. To do this, you could randomly
+        choose 2 tokens from the bucket without replacement.\\
+
+        Whatever numbers you pulled out of the bucket, you would create
+        red tuples using those numbers as your indices. For example,
+        if the numbers you pulled out of the bucket were 1 and 4,
+        then you would have the tuples (R, 1) and (R, 4). 
+        This exactly defines the red dashes in the sequence presented
+        earlier in this proof.\\
+
+        However, there's no reason why the tokens pulled from the bucket
+        had to be 1 and 4. Since you're choosing 2 tokens from a 
+        set of 5 tokens without replacement, there are $\binom{5}{2}$
+        possible ways to create 2 red tuples.\\
+
+        After forming these red tuples, there are now 3 indices left.
+        Each of these indices could be paired with either 
+        the color green, or the color blue.\\
+
+        You could choose to keep pulling numbers out of the bucket,
+        assigning each index token that you pull out 
+        to either green or blue based on the toss of a coin\\ 
+        
+        However, another equally valid approach would be to just 
+        pour out the remaining tokens, line them up in ascending order,
+        and then flip a coin as you look at each token one by one\\
+
+        Heads means the index makes a tuple with green, tails means it
+        makes a tuple with blue.\\
+        
+        If the remaining indices after making
+        the red tuples were 2, 3, and 5, and if the three coin tosses
+        had given the sequence H, H, T, then we would end up with the
+        tuples\\
+
+        (G, 2), (G, 3), (B, 5)\\
+
+        Which represents the blue and green dashes in the example shown
+        earlier in this proof.\\
+
+        Because there are 2 possible outcomes for each of the 
+        3 remaining tokens (Heads or Tails), the number of possible 
+        ways to form the green and blue tuples is ${2}^{3}$.\\
+
+        Since there are $\binom{5}{2}$ ways to form the red tuples, 
+        and ${2}^{3}$ possible ways to form the green and blue tuples,
+        there are $\binom{5}{2} * {2}^{3}$ possible ways to create
+        5 index-color tuples where 2 have the color red\\
+
+        This means that there are $\binom{5}{2} * {2}^{3}$ 
+        possible ways to create a sequence of 5 colored dashes
+        (from the colors red, green, and blue) 
+        where two of those dashes are red\\
+
+        However, if we go back to the tuple generation, there was no
+        reason why we had to have exactly two red dashes. We could have
+        had no red dashes, or five red dashes, or any number in between\\
+
+        When we choose to have k red dashes, we end up with 
+        $\binom{5}{2}$
+        
 
     \end{proof}
     
