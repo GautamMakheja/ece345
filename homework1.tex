@@ -68,7 +68,7 @@ Total Pages: \pageref{LastPage}\\[2ex]
 \newpage
 \pagestyle{fancy}
 
-\section{Question 1 Examples of this is a second test}
+\section{Question 1}
 \begin{enumerate}
     \item[a.]
     \begin{theorem}
@@ -82,8 +82,9 @@ Total Pages: \pageref{LastPage}\\[2ex]
         is either red, green, or blue.\\
 
         let's say each time you pick one of the balls out of the bucket,
-        you make a dash on a piece of paper in\\
-        whatever color the ball is, and then put the ball back. Assume that
+        you make a dash on a piece of paper using\\
+        a marker with the same color as the color of the ball.
+        Let's also say that you put the ball back after making each dash. Assume that
         you write the dashes in order so that after repeating this process
         n times, you end up with a sequence of n dashes in order, where 
         each dash is either red, green, or blue.\\
@@ -241,14 +242,65 @@ Total Pages: \pageref{LastPage}\\[2ex]
                          &= \binom{n}{n-k}
         \end{align*}
 
-        which makes intuitive sense because the number of ways
+        Which makes intuitive sense because the number of ways
         to choose k elements to use out of a set of n 
         (without replacement) is the same as the number of ways to 
         choose n - k elements not to use out of a set of n 
         (without replacement)\\ 
 
+        Using this fact, we can rewrite 
 
-        
+        \[
+        \sum_{k=0}^{n} \binom{n}{k} 2^{n - k}
+        \]
+
+        as 
+
+        \[
+        \sum_{k=0}^{n} \binom{n}{n - k} 2^{n - k}
+        \]
+
+        We can also easily make the substitution $l = n-k$.
+        When k is 0, $l=n$, and when k is n, $l=0$. This lets 
+        us rewrite the formula as\\
+
+        \[
+        \sum_{l=n}^{0} \binom{n}{l} 2^{l}
+        \]
+
+        But it doesn't really matter the order in which we evaluate
+        a sum. After all, $a + b + c = c + b + a$, so we can say:
+
+        \[
+        \sum_{l=n}^{0} f(l) = \sum_{l=0}^{n} f(l)
+        \]
+
+        which allows us to rewrite our expression for the number of 
+        unique color-index tuples as: 
+
+        \[
+        \sum_{l=0}^{n} \binom{n}{l} 2^{l}
+        \]
+
+        which is the same as 
+
+        \[
+        \sum_{k=0}^{n} \binom{n}{k} 2^{k}
+        \]
+
+        Since this is the number of unique combinations
+        of color-index tuples for n tuples, it is also the 
+        number of unique sequences of n dashes where
+        each dash is either red, green, or blue.\\
+
+        Finally, the number of unique RGB sequences of n dashes 
+        is $3^n$ (as previously proven) which means that:
+
+        \[
+        \sum_{k=0}^{n} \binom{n}{k} 2^{k} = 3^n
+        \]
+
+        QED.
 
     \end{proof}
     
