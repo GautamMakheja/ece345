@@ -200,29 +200,44 @@ Total Pages: \pageref{LastPage}\\[2ex]
 \clearpage
 
 \section{Question 7 Trees, Proof by induction}
-\begin{enumerate}
-    \item[a.]
-    \begin{theorem}
-        Some theorem here.
-    \end{theorem}
-    \begin{proof} Proof by induction
-    
-    \Base {When $n=1$, is true.}
-    
-    \IH {Suppose is true}
-    
-    \IS Consider when 
-    \end{proof}
-    
-    \item[b.]
-    Time complexity: $\bigO (n)$
-    \begin{proof}
-    ($\Leftarrow$) Assume by Contradiction,
-    
-    ($\Rightarrow$)
-    \end{proof}
-    
-\end{enumerate}
+    \textbf{Definition:} A \emph{stable parent} is defined as a node with two leaves. Let:
+    \begin{itemize}
+        \item \( n \) be the number of nodes,
+        \item \( l \) be the number of leaves,
+        \item \( p \) be the number of stable parents.
+    \end{itemize}
+
+    \noindent \textbf{Proof.} Proof by induction.
+
+    Assume the inductive hypothesis:
+    \[
+    l_n = p_n + 1 \quad \Rightarrow \quad l_{n+1} = p_{n+1} + 1
+    \]
+
+    \noindent We will now consider two cases:
+
+    \textbf{Case 1:} Add a child to a leaf.
+    \begin{itemize}
+        \item Since the leaf gains a child, while a new leaf is added, we have \( l_{n+1} = l_n \).
+        \item Since no node with 1 child gains another child, \( p_{n+1} = p_n \).
+        \item Therefore, \( l_{n+1} = l_n = p_n + 1 = p_{n+1} + 1 \).
+    \end{itemize}
+
+    \textbf{Case 2:} Add a child to a node with 1 child already.
+    \begin{itemize}
+        \item Since no leaf stops being a leaf, you have simply added a leaf, so \( l_{n+1} = l_n + 1 \).
+        \item Since the node with 1 child gains another child, a new stable parent is formed, so \( p_{n+1} = p_n + 1 \).
+        \item Therefore, \( l_{n+1} = l_n + 1 = p_{n+1} + 1 = p_n + 1 + 1 \).
+    \end{itemize}
+
+    \noindent \textbf{Base case:} For \( n = 1 \), we have:
+    \begin{itemize}
+        \item 1 node implies 1 leaf and 0 stable parents.
+        \item Thus, \( l_1 = 1 \) and \( p_1 = 0 \).
+        \item Therefore, \( 1 = 0 + 1 \), which satisfies \( l_1 = p_1 + 1 \).
+    \end{itemize}
+
+    \noindent Q.E.D.
 \newpage
 \clearpage
 
