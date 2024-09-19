@@ -53,7 +53,7 @@
 \author{ Homework Group \#85 \\
 Yanni Alan Alevras | yanni.alevras@mail.utoronto.ca | 1009330706\\
 Evan Banerjee | evan.banerjee@mail.utoronto.ca | 1009682309\\
-Gautam | | }
+Gautam | gautam.makheja@mail.utoronto.ca | 1008788974}
 \date{
 Total Pages: \pageref{LastPage}\\[2ex]
 \today}
@@ -72,15 +72,25 @@ Total Pages: \pageref{LastPage}\\[2ex]
 \begin{enumerate}
     \item[a.]
     \begin{theorem}
-        Some theorem here.
+        \normalfont Give a combinatorial argument to prove that 
+        \[
+        \sum_{k=0}^{n} \binom{n}{k} 2^k = 3^n
+        \]
     \end{theorem}
-    \begin{proof} Proof by induction
-    
-    \Base {When $n=1$, is true.}
-    
-    \IH {Suppose is true}
-    
-    \IS Consider when 
+    \begin{proof} Proof by combinatorial Argument \\\\
+        imagine you have a bucket with three balls in it, where each ball
+        is either red, green, or blue.\\
+
+        let's say each time you pick one of the balls out of the bucket,
+        you make a dash on a piece of paper in\\
+        whatever color the ball is, and then put the ball back. Assume that
+        you write the dashes in order so that after repeating this process
+        n times, you end up with a sequence of n dashes in order, where 
+        each dash is either red, green, or blue.\\
+
+        since each dash was one of three possible choices, there are 
+        ${3}^{n}$ possible sequences that you can draw with this process.
+
     \end{proof}
     
     \item[b.]
