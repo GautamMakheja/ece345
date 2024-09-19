@@ -41,3 +41,7 @@ Thumbs.db
 
 # MiKTeX-specific directories (optional)
 miktex/*
+
+# temp_file
+temp_file.tex
+temp_file.pdf
