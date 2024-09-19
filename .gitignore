@@ -1,0 +1,44 @@
+# LaTeX intermediate files
+*.aux
+*.log
+*.out
+*.toc
+*.lot
+*.lof
+*.gz
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+
+# Bibliography files
+*.bbl
+*.blg
+
+# PDF and PostScript output
+*.pdf
+*.ps
+*.dvi
+*.xdv
+
+# Presentation files (Beamer)
+*.nav
+*.snm
+*.vrb
+
+# Temporary files
+*~
+*.bak
+*.tmp
+*.swp
+
+# Editor-specific temporary files
+._*
+Thumbs.db
+.DS_Store
+
+# Compiled file backups
+*.backup
+*.sav
+
+# MiKTeX-specific directories (optional)
+miktex/*
