@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.3)  19 SEP 2024 01:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.7.3)  19 SEP 2024 00:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/thatg/Documents/GitHub/ece345/homework1
-(c:/Users/thatg/Documents/GitHub/ece345/homework1.tex
+**"c:/Users/thatg/Documents/GitHub/ece345/hw_latex_template copy"
+(c:/Users/thatg/Documents/GitHub/ece345/hw_latex_template copy.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
 (d:/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -357,8 +357,9 @@ File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count332
 \l__pdf_internal_box=\box55
-) (./homework1.aux)
-\openout1 = `homework1.aux'.
+)
+No file "hw_latex_template copy".aux.
+\openout1 = `"hw_latex_template copy.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
 LaTeX Font Info:    ... okay on input line 49.
@@ -378,7 +379,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
 LaTeX Font Info:    ... okay on input line 49.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 49.
 LaTeX Font Info:    ... okay on input line 49.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -417,14 +417,18 @@ LaTeX Font Info:    ... okay on input line 49.
 File: fc-english.def 2016/01/12
 )
 Package hyperref Info: Link coloring OFF on input line 49.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 61.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 60.
  (d:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 61.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 60.
  (d:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+
+LaTeX Warning: Reference `LastPage' on page 1 undefined on input line 60.
+
+
 
 [0
 
@@ -438,43 +442,37 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ]
 
-[3]
-
-[4
-
-]
-
-[5
-
-]
-
-[6
-
-]
-
-[7
-
-] 
+[3] 
 enddocument/afterlastpage: lastpage setting LastPage.
-(./homework1.aux)
+(./hw_latex_template copy.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package lastpage Warning: Rerun to get the references right on input line 126.
+
  ) 
 Here is how much of TeX's memory you used:
- 12084 strings out of 473583
- 184537 string characters out of 5732343
+ 12072 strings out of 473583
+ 184584 string characters out of 5732343
  1932908 words of memory out of 5000000
- 34796 multiletter control sequences out of 15000+600000
- 571783 words of font info for 70 fonts, out of 8000000 for 9000
+ 34793 multiletter control sequences out of 15000+600000
+ 572559 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,11n,93p,1047b,456s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on homework1.pdf (8 pages, 201210 bytes).
+ 83i,11n,93p,1062b,456s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><d:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
+Output written on "hw_latex_template copy.pdf" (4 pages, 190545 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 106 compressed objects within 2 object streams
- 17 named destinations out of 1000 (max. 500000)
- 57 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 112 PDF objects out of 1000 (max. 8388607)
+ 77 compressed objects within 1 object stream
+ 9 named destinations out of 1000 (max. 500000)
+ 25 words of extra memory for PDF output out of 10000 (max. 10000000)
 

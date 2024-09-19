@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\begin{document}
+
+Let's go step by step through the functions and provide reasoning to compare their growth rates. We will use standard asymptotic analysis techniques (Big-O and related concepts) to compare these functions. The goal is to show how each function grows as \( n \to \infty \).
+
+\section{1. \( \pi \) (constant)}
+
+\begin{itemize}
+    \item \textbf{Explanation}: \( \pi \) is just a constant number (approximately 3.14159). It doesn’t depend on \( n \) and thus remains fixed regardless of how large \( n \) becomes.
+    \item \textbf{Growth}: Constant functions are considered \( O(1) \). Therefore, for any \( n \), a constant function grows slower than any non-constant function.
+\end{itemize}
+
+\section{2. \( \lg(\lg^*n) \) (iterated logarithm)}
+
+\begin{itemize}
+    \item \textbf{Explanation}: The iterated logarithm, \( \lg^*n \), is the number of times the logarithm function needs to be applied to \( n \) before the result becomes less than or equal to 1. This function grows very slowly. For example:
+    \[
+    \lg^*(10^{12}) = 5
+    \]
+    \[
+    \lg^*(10^{1000}) = 6
+    \]
+    Taking the logarithm of \( \lg^*n \), which is already very slow-growing, makes \( \lg(\lg^*n) \) grow extremely slowly.
+    
+    \item \textbf{Comparison}: Since \( \lg^*n \) grows slower than any polynomial or exponential function, \( \lg(\lg^*n) \) grows even slower. Therefore:
+    \[
+    \lg(\lg^*n) = o(n^k) \quad \text{for any} \ k > 0
+    \]
+    Thus, it grows slower than any polynomial or exponential function.
+\end{itemize}
+
+\section{3. \( e^{2n} \) (exponential function)}
+
+\begin{itemize}
+    \item \textbf{Explanation}: The exponential function grows rapidly. For large \( n \), exponentials like \( e^{2n} \) grow much faster than polynomials or logarithms.
+    
+    \item \textbf{Comparison}: To compare exponential growth to other functions:
+    \[
+    e^{2n} = \omega(n^k) \quad \text{for any} \ k > 0
+    \]
+    Exponentials grow faster than any polynomial but slower than factorial growth.
+    
+    Compared to \( \lg(\lg^*n) \), the exponential \( e^{2n} \) grows dramatically faster:
+    \[
+    \lg(\lg^*n) = o(e^{2n})
+    \]
+\end{itemize}
+
+\section{4. \( n^{2n} \) (super-exponential function)}
+
+\begin{itemize}
+    \item \textbf{Explanation}: The function \( n^{2n} \) is a super-exponential function. It grows much faster than a standard exponential function like \( e^{2n} \). To see why:
+    \[
+    n^{2n} = (n^2)^n
+    \]
+    This means it is like raising \( n^2 \) to the power of \( n \), which grows faster than \( e^{2n} \), where the base is constant \( e \).
+    
+    \item \textbf{Comparison}: \( n^{2n} \) grows faster than any exponential function because its base (which is \( n^2 \)) increases with \( n \):
+    \[
+    e^{2n} = o(n^{2n})
+    \]
+    Super-exponential growth dominates exponential growth.
+\end{itemize}
+
+\section{5. \( n! \) (factorial function)}
+
+\begin{itemize}
+    \item \textbf{Explanation}: The factorial function grows even faster than super-exponential functions. Stirling's approximation gives us an idea of how fast \( n! \) grows:
+    \[
+    n! \sim \sqrt{2\pi n}\left(\frac{n}{e}\right)^n
+    \]
+    As \( n \to \infty \), the factorial grows faster than both \( n^{2n} \) and \( e^{2n} \).
+    
+    \item \textbf{Comparison}:
+    \[
+    n^{2n} = o(n!)
+    \]
+    Factorial growth is the fastest of all the functions under consideration.
+\end{itemize}
+
+\section{Final Sorted Order}
+
+Using the proofs above, the functions in increasing order of growth rate are:
+
+\begin{enumerate}
+    \item \( \pi \) (constant)
+    \item \( \lg(\lg^*n) \) (iterated logarithm)
+    \item \( e^{2n} \) (exponential)
+    \item \( n^{2n} \) (super-exponential)
+    \item \( n! \) (factorial)
+\end{enumerate}
+
+These comparisons prove that the given order is correct.
+
+\end{document}
