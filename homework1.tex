@@ -347,8 +347,64 @@ Sort the following 20 functions from asymptotically smallest to asymptotically l
 & \sum_{i=2}^n \frac{2}{{i}^2-1}, & \quad e^{2n}, & \quad n^{\lg \lg n}, & \quad n^{1337}, & \quad \lg^*{(n/2)}, \\
 & (1 + \frac{1}{787898})^{787898n}, & \quad n!, & \quad \pi, & \quad 2^{\lg^*n}, & \quad (\lg n)^{\lg^* n}
 \end{aligned}
-\]
+\]\\
 
+To solve this problem, I will find a tight bound, or an 
+upper and lower bound for each function listed.\\
+
+For each bound I find, I will place the corresponding function
+in an "Asymptotic Array" that corresponds to that bound.\\
+
+If I find that the bound for the function being analyzed
+is the same as the bound for a function
+that I analyzed previously, then I will 
+place the function in the same Asymptotic Array 
+as the previously analyzed function.\\
+
+Any two functions in the same Asymptotic Array have the same 
+asymptotic behavior.\\
+
+Once all functions are sorted, I will sort the Arrays from smallest
+to largest.
+
+I will be using these properties as provided in textbook section 3.3
+(c is a constant, k is a constant greater than 1):\\\\
+$c << \lg^*n << \lg^{c} n << n^{c} << k^{n}$
+
+I would also like to begin by proving $k^{n} << n^{n}$
+
+\begin{proof}
+    substitute: $n = k^x$ where x is a positive variable
+
+    this means $x = \log_k n$ \\
+
+    and as n $\to \infty$: 
+    
+    \noindent \[
+    \log_k n \to \infty,  
+    \quad 1 - \log_k n \to -\infty, 
+    \quad n(1 - \log_k n) \to -\infty
+    \]
+
+    the proof is as follows:
+
+    \begin{align*}
+        &\lim_{n \to \infty} \frac{k^{n}}{n^{n}} = 
+        \lim_{x \to \infty} \frac{k^{k^{x}}}{{(k^x)}^{k^{x}}} = 
+        \lim_{x \to \infty} \frac{k^{k^{x}}}{k^{x{k^{x}}}} = 
+        \lim_{x \to \infty} \frac{1}{k^{({x{k^{x}}} - {k^x})}} = \\
+        &\lim_{x \to \infty} \frac{1}{k^{{k^{x}({x} - 1)}}} = 
+        \lim_{x \to \infty} \frac{1}{k^{{-k^{x}(1 - {x})}}} = 
+        \lim_{x \to \infty} {k^{{k^{x}(1 - {x})}}} = 
+        \lim_{n \to \infty} {k^{{n(1 - \log_k n)}}} = \\
+        &\lim_{n \to \infty} {k^{{n(1 - \log_k n)}}} = 
+        \lim_{m \to -\infty} {k^{m}} = 0
+    \end{align*} 
+
+    so $k^n << n^n$
+    
+
+\end{proof}
 
 \newpage
 \clearpage
