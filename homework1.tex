@@ -905,8 +905,22 @@ k =
 
 so $n^{({\lg \lg n})/({\lg n})} = \Theta(\lg n)$
 
-that puts this function between $\lg^{(9001)} n$ and ${(\lg n)}^{\lg^*{n}}$
+we already proved that $\lg^{(9001)} n << \lg n$ in a previous part,
+but to justify why $\lg n << {(\lg n)}^{(\lg^* n)}$, set $n = {}^k 2$.
 
+$\lg n = \lg {}^k 2 = {}^{(k-1)} 2$ 
+
+while
+
+${(\lg n)}^{(\lg^* n)} = {{}^{(k-1)} 2}^{(\lg^* {}^k 2)} = {({}^{(k-1)} 2)}^{k}$
+
+this means:
+
+$\lim_{n \to \infty} \frac{\lg n}{{(\lg n)}^{(\lg^* n)}} = \lim_{k \to \infty} \frac{{}^{(k-1)} 2}{{({}^{(k-1)} 2)}^{k}} = 0$
+
+since the bottom term is exponentially larger than the top
+
+that puts this function between $\lg^{(9001)} n$ and ${(\lg n)}^{\lg^*{n}}$
 
 \[
 \left\{
