@@ -611,12 +611,7 @@ $\lg^{(9001)} n << lg^{(9000)} n << lg^{(8999)} n << ... << \lg (\lg n) << \lg n
 
 now you may be wondering how we know that $\lg^{(9001)} n >> 2^{\lg^*n}$.
 
-We can prove this by setting $n = {}^k 2 = 2^{2^{2^{\cdot^{\cdot^{\cdot 2}}}}}$ with k
-2s in total on the tower of 2.
-
-Then $\lg^*n = k$ (this is basically the definition of $\lg^*$)
-
-We can also prove that ${}^n 2 >> 2^n$
+First let's prove that ${}^n 2 >> 2^n$
 
 \begin{proof}
 Induction:\\
@@ -638,12 +633,23 @@ $\lim_{n \to \infty} \frac{2^{({}^n 2)}}{2*2^n}$ >
 $\lim_{n \to \infty} \frac{2^{2^n}}{2*2^n}$ = 0
 
 so ${}^n 2 >> 2^n$
-
 \end{proof}
+Now we can prove $\lg^{(9001)} n >> 2^{\lg^*n}$. by setting $n = {}^k 2 = 2^{2^{2^{\cdot^{\cdot^{\cdot 2}}}}}$ with k
+2s in total on the tower of 2.
 
+since $\lg2^x = x$, the lg function basically removes one of the 2s from
+the tower of 2s in the tetration. This means that $\lg{({}^k 2)} = {}^{(k-1)} 2$
 
+Then $\lg^*n = \lg^*{({}^k 2)} = k$ (this is basically the definition of $\lg^*$)
 
-if we set $k_0 = 9001$
+if we set $k_0 = 9001$, then $\lg^{(9001)} n$ = $\lg^{(9001)} ({}^k 2) = {}^{(k-9001)} 2$
+
+and shifting a function doesn't change it's asymptotic growth rate relative
+to lower order functions (since no matter how large a headstart a lower order
+function has, eventually the function with the higher growth rate will dominate), so
+
+${}^{(k - 9001)} 2 >> k =lg^*n$\\\\
+
 
 The next smallest function asymptotically is going to be either
 $n \lg \lg n$ or ${(\lg n)}^{\lg^*{n}}$
