@@ -369,7 +369,7 @@ to largest.
 
 I will be using these properties as provided in textbook section 3.3
 (c is a constant, k is a constant greater than 1):\\\\
-$c << \lg^*n << \lg^{c} n << n^{c} << k^{n}$
+$c << \lg^*n << ({\lg n})^c << n^{c} << k^{n}$
 
 I would also like to begin by proving $k^{n} << n^{n}$
 
@@ -452,7 +452,15 @@ $n^{4.5} - (n - 1)^{4.5} = \Theta(n^{3.5})$
 
 so we have our first category:
 
-$\Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}]$
+$\Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}]$\\\\
+
+Now let's look at $n \lg \lg n$
+
+Asymptotically, this formula is already in it's most simplified 
+form, so we just make a new category:
+
+$\Theta(n \lg \lg n): [n \lg \lg n]$\\\\
+
 
 \newpage
 \clearpage
