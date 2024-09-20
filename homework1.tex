@@ -637,7 +637,7 @@ so ${}^n 2 >> 2^n$
 Now we can prove $\lg^{(9001)} n >> 2^{\lg^*n}$. by setting $n = {}^k 2 = 2^{2^{2^{\cdot^{\cdot^{\cdot 2}}}}}$ with k
 2s in total on the tower of 2.
 
-since $\lg2^x = x$, the lg function basically removes one of the 2s from
+since $\lg2^x = x$, the lg function removes one of the 2s from
 the tower of 2s in the tetration. This means that $\lg{({}^k 2)} = {}^{(k-1)} 2$
 
 Then $\lg^*n = \lg^*{({}^k 2)} = k$ (this is basically the definition of $\lg^*$)
@@ -651,11 +651,37 @@ function has, eventually the function with the higher growth rate will dominate)
 ${}^{(k - 9001)} 2 >> k =lg^*n$\\\\
 
 
-The next smallest function asymptotically is going to be either
-$n \lg \lg n$ or ${(\lg n)}^{\lg^*{n}}$
+The next smallest function asymptotically is going to be
+${(\lg n)}^{\lg^*{n}}$
 
-The reasoning is fairly simple. Every other function on this list 
-has some component that makes it at least polynomial time
+This is because we can prove that ${(\lg n)}^{\lg^*{n}} << n$, and
+every other function in the simplified list as of now is at $\Omega(n)$
+
+\begin{proof} Define k such that $n = {}^k 2$
+    
+    $\lim_{n \to \infty} \frac{{(\lg n)}^{\lg^*{n}}}{n}$ =
+    $\lim_{k \to \infty} \frac{{(\lg{({}^k 2)})}^{\lg^*{({}^k 2})}}{{}^k 2}$ =
+    $\lim_{k \to \infty} \frac{{({({}^{(k-1)} 2)})}^{k}}{{}^k 2}$\\
+
+    by definition, ${}^k 2 = 2^{({}^{(k-1)} 2)}$ so we can rewrite the 
+    previous equation as:
+
+    $\lim_{k \to \infty} \frac{{({({}^{(k-1)} 2)})}^{k}}{2^{({}^{(k-1)} 2)}}$\\
+
+    let's make another substitution $X = \lg n = {}^{(k-1)} 2$ while $n = 2^X$
+
+    the function is now:
+
+    $\lim_{x \to \infty} \frac{{X}^{k}}{2^{X}}$\\
+
+    we know $k = \lg^*n = \lg^*{2^X} = 1 + \lg^*X << \lg^*X$
+
+    which means $\lim_{x \to \infty} \frac{{X}^{k}}{2^{X}} << \lim_{x \to \infty} \frac{{X}^{\lg{X}}}{2^{X}}$\\
+
+    however, in the general problem $\lim_{n \to \infty} \frac{}{}$
+
+    \end{proof}
+
 
 \[
 \left\{
