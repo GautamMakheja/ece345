@@ -364,6 +364,8 @@ as the previously analyzed function.\\
 Any two functions in the same Asymptotic Array have the same 
 asymptotic behavior.\\
 
+All asymptotic arrays will be stored in a larger array for convenince.\\
+
 Once all functions are sorted, I will sort the Arrays from smallest
 to largest.
 
@@ -402,9 +404,11 @@ I would also like to begin by proving $k^{n} << n^{n}$
     \end{align*} 
 
     so $k^n << n^n$
-    
-
 \end{proof}
+
+The final string of inequalities is therefore:
+
+$c << \lg^*n << ({\lg n})^c << n^{c} << k^{n} << n^n$\\
 
 Let's first examine $n^{4.5} - (n - 1)^{4.5}$\\
 
@@ -452,14 +456,130 @@ $n^{4.5} - (n - 1)^{4.5} = \Theta(n^{3.5})$
 
 so we have our first category:
 
-$\Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}]$\\\\
+\{$\Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}]$\}\\
 
 Now let's look at $n \lg \lg n$
 
-Asymptotically, this formula is already in it's most simplified 
-form, so we just make a new category:
+This function is equal to it's asymptotic ($\theta$) form, 
+which I will henceforth refer to as being in its "most simplified form".
+Since we can't make it simpler, we just make a new category:
 
-$\Theta(n \lg \lg n): [n \lg \lg n]$\\\\
+
+\[
+\left\{
+\Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}], 
+\quad \Theta(n \lg \lg n): [n \lg \lg n]
+\right\}
+\]\\
+
+Now let's look at $n\sqrt{\frac{n}{2}}$
+
+\begin{align*}
+    n\sqrt{\frac{n}{2}} =
+    \frac{1}{\sqrt{2}}n*n^{0.5} = 
+    \frac{1}{\sqrt{2}}n^{1.5} = 
+    \Theta({n^{1.5}})
+\end{align*}
+
+
+\[
+\left\{
+\Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}], 
+\quad \Theta(n \lg \lg n): [n \lg \lg n],
+\quad \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],
+\right\}
+\]\\
+
+Now let's look at $n^{2n}$
+
+This is already in its most simplified form\\
+
+\[
+\left\{
+\begin{aligned}
+& \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}], 
+& \quad \Theta(n \lg \lg n): [n \lg \lg n],
+& \quad \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],\\
+& \Theta(n^{2n}): [n^{2n}],
+\end{aligned}
+\right\}
+\]\\
+
+Now let's look at $\lg(\lg^*n)$
+
+This is already in its most simplified form\\
+
+\[
+\left\{
+\begin{aligned}
+& \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}], 
+& \quad \Theta(n \lg \lg n): [n \lg \lg n],
+& \quad \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],\\
+& \Theta(n^{2n}): [n^{2n}],
+& \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
+\end{aligned}
+\right\}
+\]\\
+
+To save time, I'm going to add all the functions that are already 
+equivalent to their big theta forms:\\
+
+\[
+\left\{
+\begin{aligned}
+& \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}], 
+& \quad \Theta(n \lg \lg n): [n \lg \lg n],
+& \quad \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],\\
+& \Theta(n^{2n}): [n^{2n}],
+& \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
+& \quad \Theta(\lg^{(9001)} n): [\lg^{(9001)} n)],\\
+& \Theta(1): [\pi],
+& \quad \Theta(\lg^*2^n): [\lg^*2^n],
+& \quad \Theta(e^{2n}): [e^{2n}],\\
+& \Theta(n^{1337}): [n^{1337}],
+& \quad \Theta(\lg^*{n/2}): [\lg^*{n/2}],
+& \quad \Theta(2^{\lg^*{n}}): [2^{\lg^*{n}}],\\
+& \Theta({\lg n}^{\lg^*{n}}): [{\lg n}^{\lg^*{n}}],
+\end{aligned}
+\right\}
+\]\\
+
+before simplifying further, let's order this array from smallest
+to largest asymptotically when reading from left to right, and top 
+to bottom\\
+
+since the smallest asymptotic growth is just a constant value,
+$\Theta(1)$ comes first:\\
+
+\[
+\left\{
+\begin{aligned}
+& \Theta(1): [\pi]
+\end{aligned}
+\right\}
+\]\\
+
+then, the next growth rate in terms of asymptotic size after $\Theta(1)$
+is $\Theta(\lg^*n)$. We have four relevant Theta functions here: 
+
+$\Theta(\lg(\lg^*n))$\\
+$\Theta(\lg^*2^n)$\\
+$\Theta(\lg^*{n/2})$\\
+$\Theta(2^{\lg^*n})$
+
+while we do have the tight bound $\Theta({\lg n}^{\lg^*n})$,
+this function is clearly $\Omega(\lg n)$ due to the fact that even 
+if we treat $lg^*n$ as a constant value, it will still be a constant
+greater than 1. 
+
+\[
+\begin{aligned}
+& n^{4.5} - (n - 1)^{4.5}, & \quad n \lg \lg n, & \quad n\sqrt{\frac{n}{2}}, & \quad n^{2n}, & \quad \lg(\lg^*n), \\
+& n^{({\lg \lg n})/({\lg n})}, & \quad \lg^{(9001)} n, & \quad \lg^*2^{n}, & \quad \lg(n!), & \quad (\lg n)^{\lg n}, \\
+& \sum_{i=2}^n \frac{2}{{i}^2-1}, & \quad e^{2n}, & \quad n^{\lg \lg n}, & \quad n^{1337}, & \quad \lg^*{(n/2)}, \\
+& (1 + \frac{1}{787898})^{787898n}, & \quad n!, & \quad \pi, & \quad 2^{\lg^*n}, & \quad (\lg n)^{\lg^* n}
+\end{aligned}
+\]\\
 
 
 \newpage
