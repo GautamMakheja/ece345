@@ -704,7 +704,22 @@ every other function in the simplified list as of now is at $\Omega(n)$
 
 So now we have:
 
-$\mathcal{O}(g(n))$
+\[
+\left\{
+\begin{aligned}
+& \Theta(1): [\pi],
+& \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
+& \quad \Theta(2^{\lg^*n}): [2^{\lg^*n})],\\
+& \mathcal{O}(n)+\Omega(\lg n): [({(\lg n)}^{\lg^*{n}})],
+\end{aligned}
+\right\}
+\]\\
+
+the next function is going to be $n\lg \lg n$ this is because (for a > 0)
+
+$n\lg \lg n << n\lg n << n * n^a = n^b$ where b > 1, and the next smallest function in the 
+
+list has size $n^{1.5}$
 
 \[
 \left\{
@@ -713,6 +728,45 @@ $\mathcal{O}(g(n))$
 & \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
 & \quad \Theta(2^{\lg^*n}): [2^{\lg^*n})],\\
 & \mathcal{O}(n)+\Omega(\lg n): [({(\lg n)}^{\lg^*{n}})],
+& \quad \Theta(n\lg \lg n): [n\lg \lg n],
+\end{aligned}
+\right\}
+\]\\
+
+the next three terms are all polynomial, so I will omit proofs since
+$n^a >> n^b$ iff $a > b$
+
+\[
+\left\{
+\begin{aligned}
+& \Theta(1): [\pi],
+& \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
+& \quad \Theta(2^{\lg^*n}): [2^{\lg^*n})],\\
+& \mathcal{O}(n)+\Omega(\lg n): [({(\lg n)}^{\lg^*{n}})],
+& \quad \Theta(n\lg \lg n): [n\lg \lg n],
+& \quad \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],\\
+& \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}], 
+& \Theta(n^{1337}): [n^{1337}],
+\end{aligned}
+\right\}
+\]\\
+
+the next functions will be the exponentials, which for now
+is only $e^{2n}$. This makes sense because exponentials grow faster
+than all polynomials asymptotically:
+
+\[
+\left\{
+\begin{aligned}
+& \Theta(1): [\pi],
+& \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
+& \quad \Theta(2^{\lg^*n}): [2^{\lg^*n})],\\
+& \mathcal{O}(n)+\Omega(\lg n): [({(\lg n)}^{\lg^*{n}})],
+& \quad \Theta(n\lg \lg n): [n\lg \lg n],
+& \quad \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],\\
+& \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}], 
+& \Theta(n^{1337}): [n^{1337}],
+& \quad \Theta(e^{2n}): [e^{2n}],\\
 \end{aligned}
 \right\}
 \]\\
