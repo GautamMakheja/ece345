@@ -1375,50 +1375,57 @@ this means $\lg^* 2^n \Theta(\lg^*)$
 \right\}
 \]\\
 
-888888888888888888888888888888888888888 
+Finally, let's look at $\lg n!$
+
+using the lower bound of $n^{(n/2)}$ and the upper bound $n^n$, we can easily say\\
+
+$\lg n^{(n/2)} << \lg n! << \lg n^n$
+
+which is the same as
+
+$(n/2) \cdot \lg n << \lg n! << n \cdot \lg n$
+
+and both the upper and lower bound terms are $\Theta(n\lg n)$, so
+
+$\lg n! = \Theta(n\lg n)$
+
+and clearly $n\lg \lg n << n\lg n << n^{1.5}$
+
+since logarithms are decreasing functions for large inputs, so our FINAL LIST is:
+
 \[
 \left\{
 \begin{aligned}
-& \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}], 
-& \quad \Theta(n \lg \lg n): [n \lg \lg n],
-& \quad \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],\\
+& \Theta(1): [\pi, \sum_{i=2}^{n} \frac{2}{i^2 - 1}],\\
+& \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],\\
+& \Theta(\lg^* n): [\lg^* n/2, \lg^* 2^n]\\
+& \Theta(2^{\lg^*n}): [2^{\lg^*n})],\\
+& \Theta(\lg^{(9001)} n): [\lg^{(9001)} n)],\\
+& \Theta(\lg n): [n^{({\lg \lg n})/({\lg n})}],\\
+& \Omega(\lg n) + \mathcal{O}(n): [({(\lg n)}^{\lg^*{n}})],\\
+& \Theta(n\lg \lg n): [n\lg \lg n],\\
+& \Theta(n\lg n): [\lg n!],\\
+& \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],\\
+& \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}],\\ 
+& \Theta(n^{1337}): [n^{1337}],\\
+& \Omega(n^a) + \mathcal{O}(b^n:\,\, b > 1): [n^{\lg \lg n}, (\lg n)^{\lg n}],\\
+& \Omega(2.59^n) + \mathcal{O}(e^n): [{(1 + \frac{1}{787898})}^{(787898n)}],\\
+& \Theta(e^{2n}): [e^{2n}],\\
+& \Omega(n^{n/2}) + \mathcal{O}(n^n): [n!],\\
 & \Theta(n^{2n}): [n^{2n}],
-& \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
-& \quad \Theta(\lg^{(9001)} n): [\lg^{(9001)} n)],\\
-& \Theta(1): [\pi],
-& \quad \Theta(e^{2n}): [e^{2n}],\\
-& \Theta(n^{1337}): [n^{1337}],
-& \quad \Theta(2^{\lg^*{n}}): [2^{\lg^*{n}}],
-& \quad \Theta({(\lg n)}^{\lg^*{n}}): [{(\lg n)}^{\lg^*{n}}],
 \end{aligned}
 \right\}
 \]\\
 
 
-\[
-\begin{aligned}
-& n^{4.5} - (n - 1)^{4.5}, & \quad n \lg \lg n, & \quad n\sqrt{\frac{n}{2}}, & \quad n^{2n}, & \quad \lg(\lg^*n), \\
-& n^{({\lg \lg n})/({\lg n})}, & \quad \lg^{(9001)} n, & \quad \lg^*2^{n}, & \quad \lg(n!), & \quad (\lg n)^{\lg n}, \\
-& \sum_{i=2}^n \frac{2}{{i}^2-1}, & \quad e^{2n}, & \quad n^{\lg \lg n}, & \quad n^{1337}, & \quad \lg^*{(n/2)}, \\
-& (1 + \frac{1}{787898})^{787898n}, & \quad n!, & \quad \pi, & \quad 2^{\lg^*n}, & \quad (\lg n)^{\lg^* n}
-\end{aligned}
-\]\\
+Which means the final answer is, in order:
 
-$\Theta(\lg^*2^n)$\\
-let's assume $n = {}^k 2 = 2^{2^{2^{\cdot^{\cdot^{\cdot 2}}}}}$ with k
-2s in total on the tower of 2
-
-then $\lg^*n = k$ (this is basically the definition of $\lg^*$)
-
-As a result, if $\lg^*n$ = k, then 
-
-$\lg^*2^n = \lg^*{2^{{}^k 2}} = \lg^*{2^{2^{2^{2^{\cdot^{\cdot^{\cdot 2}}}}}}}$ with (k + 1) 2s
-
-which evaluates to just k+1, or $\lg^*n + 1$.
-
-since for any value of n, $\lg^*{2^n}$ is only $\lg^*n + 1$, we can say
-that $\lg^*{2^n} = \Theta(\lg^*{n})$
-
+$\pi$ $\equiv$ $\sum_{i=2}^{n} \frac{2}{i^2 - 1}$ << $\lg(\lg^*n)$ <<
+$\lg^* n/2 \equiv \lg^* 2^n$ << $2^{\lg^*n})$ << $\lg^{(9001)} n$ << 
+$n^{({\lg \lg n})/({\lg n})}$ << $({(\lg n)}^{\lg^*{n}})$ << $n\lg \lg n$ <<
+$\lg n!$ << $n\sqrt{\frac{n}{2}}$ << $n^{4.5} - (n - 1)^{4.5}$ <<
+$n^{1337}$ << $n^{\lg \lg n} \equiv (\lg n)^{\lg n}$ <<
+${(1 + \frac{1}{787898})}^{(787898n)}$ << $e^{2n}$ << $n!$ << $n^{(2n)}$
 
 \newpage
 \clearpage
