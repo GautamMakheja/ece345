@@ -1344,6 +1344,37 @@ but we just proved what that was so let's just add it to the list:
 \right\}
 \]\\
 
+now let's look at $\lg^* 2^n$
+
+if we substitue n = ${}^k 2$ ($\lg^* n = k$)
+
+$\lg^* 2^n = \lg^* 2^{({}^k 2)} = \lg^* ({}^{(k+1)} 2) = k + 1 = \lg^* n + 1$
+
+this means $\lg^* 2^n \Theta(\lg^*)$
+
+\[
+\left\{
+\begin{aligned}
+& \Theta(1): [\pi, \sum_{i=2}^{n} \frac{2}{i^2 - 1}],\\
+& \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],\\
+& \Theta(\lg^* n): [\lg^* n/2, \lg^* 2^n]\\
+& \Theta(2^{\lg^*n}): [2^{\lg^*n})],\\
+& \Theta(\lg^{(9001)} n): [\lg^{(9001)} n)],\\
+& \Theta(\lg n): [n^{({\lg \lg n})/({\lg n})}],\\
+& \Omega(\lg n) + \mathcal{O}(n): [({(\lg n)}^{\lg^*{n}})],\\
+& \Theta(n\lg \lg n): [n\lg \lg n],\\
+& \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],\\
+& \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}],\\ 
+& \Theta(n^{1337}): [n^{1337}],\\
+& \Omega(n^a) + \mathcal{O}(b^n:\,\, b > 1): [n^{\lg \lg n}, (\lg n)^{\lg n}],\\
+& \Omega(2.59^n) + \mathcal{O}(e^n): [{(1 + \frac{1}{787898})}^{(787898n)}],\\
+& \Theta(e^{2n}): [e^{2n}],\\
+& \Omega(n^{n/2}) + \mathcal{O}(n^n): [n!],\\
+& \Theta(n^{2n}): [n^{2n}],
+\end{aligned}
+\right\}
+\]\\
+
 888888888888888888888888888888888888888 
 \[
 \left\{
