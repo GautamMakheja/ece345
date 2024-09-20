@@ -889,6 +889,58 @@ we can say $e^{2n} << n! << n^{2n}$
 \right\}
 \]\\
 
+now let's look at $n^{({\lg \lg n})/({\lg n})}$
+
+substitue n = $2^k$ or $k = \lg n$:
+
+\begin{align*}
+n^{({\lg \lg n})/({\lg n})} =
+{2^k}^{{\lg \lg {2^k}} / \lg {2^k}}=
+{2^k}^{{\lg k} / k} = 
+2^{{k/k} \cdot \lg k} = 
+2^{\lg k} =
+k =
+\lg n
+\end{align*}
+
+so $n^{({\lg \lg n})/({\lg n})} = \Theta(\lg n)$
+
+that puts this function between $\lg^{(9001)} n$ and ${(\lg n)}^{\lg^*{n}}$
+
+also reformatting the glossary of functions is annoying so I'm just gonna turn
+it into a straight list
+
+
+\[
+\left\{
+\begin{aligned}
+& \Theta(1): [\pi],\\
+& \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],\\
+& \Theta(2^{\lg^*n}): [2^{\lg^*n})],\\
+& \Theta(\lg^{(9001)} n): [\lg^{(9001)} n)],\\
+& \Theta(\lg n): [n^{({\lg \lg n})/({\lg n})}],\\
+& \Omega(\lg n) + \mathcal{O}(n): [({(\lg n)}^{\lg^*{n}})],\\
+& \Theta(n\lg \lg n): [n\lg \lg n],\\
+& \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],\\
+& \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}],\\ 
+& \Theta(n^{1337}): [n^{1337}],\\
+& \Theta(e^{2n}): [e^{2n}],\\
+& \Omega(n^{n/2}) + \mathcal{O}(n^n): [n!],\\
+& \Theta(n^{2n}): [n^{2n}],
+\end{aligned}
+\right\}
+\]\\
+
+now let's look at $\lg^*{n/2}$
+
+for large n, $\lg n < n/2 < 2^n$
+
+this means
+
+$\lg^* \lg n < \lg^* n/2 < \lg^* 2^n$
+
+if $n = {}^k 2$
+
 888888888888888888888888888888888888888
 \[
 \left\{
