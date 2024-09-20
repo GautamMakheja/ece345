@@ -558,7 +558,6 @@ equivalent to their big theta forms:
 & \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
 & \quad \Theta(\lg^{(9001)} n): [\lg^{(9001)} n)],\\
 & \Theta(1): [\pi],
-& \quad \Theta(\lg^*2^n): [\lg^*2^n],
 & \quad \Theta(e^{2n}): [e^{2n}],\\
 & \Theta(n^{1337}): [n^{1337}],
 & \quad \Theta(2^{\lg^*{n}}): [2^{\lg^*{n}}],
@@ -567,7 +566,7 @@ equivalent to their big theta forms:
 \right\}
 \]\\
 
-before simplifying further, let's order this array from smallest
+before further analysis, let's order this array from smallest
 to largest asymptotically when reading from left to right, and top 
 to bottom\\
 
@@ -583,12 +582,39 @@ $\Theta(1)$ comes first:\\
 \]\\
 
 then, the next growth rate in terms of asymptotic size after $\Theta(1)$
-is $\Theta(\lg^*n)$. We have four relevant Theta functions here: 
+is $\Theta(\lg^*n)$. We have two relevant Theta functions here: 
 
 $\Theta(\lg(\lg^*n))$\\
-$\Theta(\lg^*2^n)$\\
 $\Theta(2^{\lg^*n})$\\\\
 
+However, for the other two function, $\lg^*n$ just acts as the input
+into another function, so as long as $\lg^*n$ increases without bound:\\
+
+$\lg(\lg^*n) << \lg^*n$ and $2^{\lg^*n} >> \lg^*n$
+
+as a result, the ordering will look like this:\\
+
+\[
+\left\{
+\begin{aligned}
+& \Theta(1): [\pi],
+& \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
+& \quad \Theta(\lg^*2^n): [\lg^*2^n],
+\end{aligned}
+\right\}
+\]\\
+
+
+\[
+\begin{aligned}
+& n^{4.5} - (n - 1)^{4.5}, & \quad n \lg \lg n, & \quad n\sqrt{\frac{n}{2}}, & \quad n^{2n}, & \quad \lg(\lg^*n), \\
+& n^{({\lg \lg n})/({\lg n})}, & \quad \lg^{(9001)} n, & \quad \lg^*2^{n}, & \quad \lg(n!), & \quad (\lg n)^{\lg n}, \\
+& \sum_{i=2}^n \frac{2}{{i}^2-1}, & \quad e^{2n}, & \quad n^{\lg \lg n}, & \quad n^{1337}, & \quad \lg^*{(n/2)}, \\
+& (1 + \frac{1}{787898})^{787898n}, & \quad n!, & \quad \pi, & \quad 2^{\lg^*n}, & \quad (\lg n)^{\lg^* n}
+\end{aligned}
+\]\\
+
+$\Theta(\lg^*2^n)$\\
 let's assume $n = {}^k 2 = 2^{2^{2^{\cdot^{\cdot^{\cdot 2}}}}}$ with k
 2s in total on the tower of 2
 
@@ -602,17 +628,6 @@ which evaluates to just k+1, or $\lg^*n + 1$.
 
 since for any value of n, $\lg^*{2^n}$ is only $\lg^*n + 1$, we can say
 that $\lg^*{2^n} = \Theta(\lg^*{n})$
-
-
-
-\[
-\begin{aligned}
-& n^{4.5} - (n - 1)^{4.5}, & \quad n \lg \lg n, & \quad n\sqrt{\frac{n}{2}}, & \quad n^{2n}, & \quad \lg(\lg^*n), \\
-& n^{({\lg \lg n})/({\lg n})}, & \quad \lg^{(9001)} n, & \quad \lg^*2^{n}, & \quad \lg(n!), & \quad (\lg n)^{\lg n}, \\
-& \sum_{i=2}^n \frac{2}{{i}^2-1}, & \quad e^{2n}, & \quad n^{\lg \lg n}, & \quad n^{1337}, & \quad \lg^*{(n/2)}, \\
-& (1 + \frac{1}{787898})^{787898n}, & \quad n!, & \quad \pi, & \quad 2^{\lg^*n}, & \quad (\lg n)^{\lg^* n}
-\end{aligned}
-\]\\
 
 
 \newpage
