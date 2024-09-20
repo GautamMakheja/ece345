@@ -447,9 +447,15 @@ putting this all together ($0 < \epsilon < 1$):
 \begin{align*}
 n^{k} - (n - 1)^{k} = 
 k(n-\epsilon)^{k - 1} =
-4.5\Theta(n^{k - 1}) = 
+k\Theta(n^{k - 1}) = 
 \Theta(n^{k - 1})
 \end{align*}
+
+so the main formula is: $n^{k} - (n - 1)^{k} = \Theta(n^{k - 1})$
+
+and a sub-formula $n^{k} - (n - 1)^{k} = k(n-\epsilon)^{k - 1}$
+
+I will call this SUB-FORMULA 1, and it will useful later
 
 Our example is just the case when k = 4.5 so
 
@@ -984,7 +990,245 @@ treat $\lg^* n$ as our input variable:
 \right\}
 \]\\
 
-888888888888888888888888888888888888888
+now let's look at $\sum_{i=2}^{n} \frac{2}{i^2 - 1}$
+
+let's create 2 new sums: $\sum_{i=2}^{n} \frac{2}{i^2}$ and $\sum_{i=2}^{n} \frac{4}{i^2}$
+
+we can see that both of these sums are scalar multiples of 
+$\sum_{i=2}^{n} \frac{1}{i^2}$.
+
+we can also show that 
+$\int_{2}^{\infty} \frac{1}{i^2} \, di = \left[ -\frac{1}{i} \right]_{2}^{\infty} = 1/2$ 
+
+which, by the integral test, means that $\sum_{i=2}^{n} \frac{1}{i^2}$ approaches
+a constant as n goes to infinity. This means that any scalar multiple of 
+this sum will be a constant as n goes to infinity. As a result, we can say
+
+$\sum_{i=2}^{n} \frac{2}{i^2} \equiv \sum_{i=2}^{n} \frac{4}{i^2} = \Theta(1)$
+
+All that's left 
+to prove is that $\sum_{i=2}^{n} \frac{2}{i^2 - 1}$ lies between these
+two sums for large values of n\\
+
+by inspection, $\sum_{i=2}^{n} \frac{2}{i^2 - 1} > \sum_{i=2}^{n} \frac{2}{i^2}$
+since for any value of i, the term in the left sum has a smaller denominator
+than the corresponding term in the right sum, while they have the same numerators.
+
+to prove that $\sum_{i=2}^{n} \frac{2}{i^2 - 1} < \sum_{i=2}^{n} \frac{4}{i^2}$
+we shall use induction:
+
+\begin{proof}
+Inductive case:
+Assume $\frac{2}{i^2 - 1} < \frac{4}{i^2}$.
+
+We can prove $\frac{2}{{(i+1)}^2 - 1} < \frac{4}{{(i+1)}^2}$
+
+by showing that $\frac{\frac{2}{{(i+1)}^2 - 1}}{\frac{4}{{(i+1)}^2}} < 1$.
+
+if we simplify, we can rewrite the improper fraction as:
+
+$\frac{2 \cdot {(i+1)}^2}{4 \cdot {({(i+1)}^2 - 1)}}$
+
+which we can expand as:
+
+$\frac{2 \cdot {(i^2 + 2i + 1)}}{4 \cdot {(i^2 + 2i)}}$
+
+we can start with the original inequality $\frac{2}{i^2 - 1} < \frac{4}{i^2}$
+
+and multiply both sides by ${({i}^2 -1)} \cdot {{i}^2}$ to get 
+
+$2i^2 < 4i^2 - 4$ or $i^2 < 2i^2 - 2$
+
+we can make a fraction larger by increasing the numerator, so
+
+$\frac{2 \cdot {(i^2 + 2i + 1)}}{4 \cdot {(i^2 + 2i)}} < \frac{2 \cdot {((2i^2 - 2) + 2i + 1)}}{4 \cdot {(i^2 + 2i)}}$ = 
+
+$\frac{4i^2 - 4 + 4i + 2}{4 \cdot {(i^2 + 2i)}}$ = $\frac{4i^2 + 4i - 2}{4i^2 + 8i}$
+
+and this fraction will be less than 1 if 
+
+${4i^2 + 4i - 2} < {4i^2 + 8i}$
+
+which is the same as
+
+${4i - 2} < {8i}$
+
+or 
+
+${-2} < {4i}$
+
+which is true since i is always greater than or equal to 2.
+
+this means that $\frac{2 \cdot {(i^2 + 2i + 1)}}{4 \cdot {(i^2 + 2i)}} < 1$
+
+and so 
+$\frac{2}{{(i+1)}^2 - 1} < \frac{4}{{(i+1)}^2}$
+
+\end{proof}
+
+to prove the base case, simply plug in i = 2:
+
+$\frac{2}{i^2 - 1} = \frac{2}{4 - 1} = \frac{2}{3}$
+
+$\frac{4}{i^2} = \frac{4}{4} = 1$
+
+1 > 2/3.
+
+this means that every term in 
+
+$\sum_{i=2}^{n} \frac{2}{i^2 - 1}$ is less than the corresponding term in  $\sum_{i=2}^{n} \frac{4}{i^2}$ so
+
+$\sum_{i=2}^{n} \frac{2}{i^2 - 1} < \sum_{i=2}^{n} \frac{4}{i^2}$
+
+since $\sum_{i=2}^{n} \frac{2}{i^2 - 1}$ is always larger than a $\Theta{0}(1)$ sum
+and always smaller than a different $\Theta{0}(1)$ sum,
+
+$\sum_{i=2}^{n} \frac{2}{i^2 - 1} = \Theta(1)$
+
+
+\[
+\left\{
+\begin{aligned}
+& \Theta(1): [\pi, \sum_{i=2}^{n} \frac{2}{i^2 - 1}],\\
+& \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],\\
+& \Theta(\lg^* n): [\lg^* n/2]\\
+& \Theta(2^{\lg^*n}): [2^{\lg^*n})],\\
+& \Theta(\lg^{(9001)} n): [\lg^{(9001)} n)],\\
+& \Theta(\lg n): [n^{({\lg \lg n})/({\lg n})}],\\
+& \Omega(\lg n) + \mathcal{O}(n): [({(\lg n)}^{\lg^*{n}})],\\
+& \Theta(n\lg \lg n): [n\lg \lg n],\\
+& \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],\\
+& \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}],\\ 
+& \Theta(n^{1337}): [n^{1337}],\\
+& \Theta(e^{2n}): [e^{2n}],\\
+& \Omega(n^{n/2}) + \mathcal{O}(n^n): [n!],\\
+& \Theta(n^{2n}): [n^{2n}],
+\end{aligned}
+\right\}
+\]\\
+
+Now let's look at ${(1 + \frac{1}{787898})}^{(787898n)}$
+
+obviously ${(1 + \frac{1}{787898})}^{(787898)}$ looks fairly close
+to e, but to prove that it is a constant greater than 1, I will start
+by showing that the function f(n) = ${(1 + \frac{1}{n})}^{n}$ is 
+always increasing for all positive integers n greater than some $n_0$, 
+and then show that even at $n_0$ the sum is greater than 1. 
+().\\
+
+f(n) is always increasing if f(n + 1) > f(n)\\
+
+since ln(x) is also always increasing, the previous statement
+will be true iff
+
+$\ln f(n + 1) > \ln f(n)$ 
+or equivalently 
+
+$\ln f(n + 1) - \ln f(n) > 0$
+
+let us now manipulate the left hand side of the expression
+to show that it must be greater than 0:
+
+\begin{align*}
+    \ln f(n + 1) - \ln f(n) =\\ 
+    \ln {(1 + \frac{1}{n+ 1})}^{n + 1} - \ln {(1 + \frac{1}{n})}^{n} =\\
+    (n + 1) \cdot \ln {(1 + \frac{1}{n+ 1})} - n \cdot \ln {(1 + \frac{1}{n})}^{n}=\\
+\end{align*}
+
+Using the taylor series for lnx centered around 1 (with radius of convergence equal to 1),
+and using the fact that 1/n < 1 for all n > 1, we can write:
+
+\begin{align*}
+    (n + 1) \cdot \ln {(1 + \frac{1}{n+ 1})} - n \cdot \ln {(1 + \frac{1}{n})}^{n}=\\
+    (n + 1) \cdot \left(({(1 + \frac{1}{n+1})}-1) - \frac{({(1 + \frac{1}{n+1})}-1)^2}{2} + \frac{({(1 + \frac{1}{n+1})}-1)^3}{3} - \frac{({(1 + \frac{1}{n+1})}-1)^4}{4} + ...\right) -\\ 
+    (n) \cdot \left(({(1 + \frac{1}{n})}-1) - \frac{({(1 + \frac{1}{n})}-1)^2}{2} + \frac{({(1 + \frac{1}{n})}-1)^3}{3} - \frac{({(1 + \frac{1}{n})}-1)^4}{4} + ...\right)=\\\\
+    (n + 1) \cdot \left(({\frac{1}{n+1}}) - \frac{({\frac{1}{n+1}})^2}{2} + \frac{({\frac{1}{n+1}})^3}{3} - \frac{({\frac{1}{n+1}})^4}{4} + ...\right) -\\ 
+    (n) \cdot \left(({\frac{1}{n}}) - \frac{({\frac{1}{n}})^2}{2} + \frac{({\frac{1}{n}})^3}{3} - \frac{({\frac{1}{n}})^4}{4} + ...\right) =\\\\
+    \left(({1}) - \frac{({\frac{1}{n+1}})}{2} + \frac{({\frac{1}{n+1}})^2}{3} - \frac{({\frac{1}{n+1}})^3}{4} + ...\right) -\\ 
+    \left(({1}) - \frac{({\frac{1}{n}})}{2} + \frac{({\frac{1}{n}})^2}{3} - \frac{({\frac{1}{n}})^3}{4} + ...\right) =\\
+    \left(\left(\frac{\frac{1}{n}}{2} - \frac{\frac{1}{n+1}}{2}\right) - \left(\frac{\frac{1}{n^2}}{3} - \frac{\frac{1}{{(n+1)}^2}}{3}\right) + \left(\frac{\frac{1}{n^3}}{4} - \frac{\frac{1}{{(n+1)}^3}}{4}\right) - ...\right) =\\
+    \left(\left(\frac{{\frac{1}{n}} - {\frac{1}{n+1}}}{2}\right) - \left(\frac{{\frac{1}{n^2}} - {\frac{1}{{(n+1)}^2}}}{3}\right) + \left(\frac{{\frac{1}{n^3}} - {\frac{1}{{(n+1)}^3}}}{4}\right) - ...\right)
+\end{align*}
+
+however, remember that SUB-FORMULA 1 (I told you it was gonna be useful) states that
+
+$(n^k) - {(n - 1)}^k = k(n-\epsilon)^{k - 1}$
+
+which is the same as:
+
+$({(n+1)}^k) - {n}^k = k(n-\epsilon)^{k}$
+
+where $0 < \epsilon < 1$
+this means that because
+
+$\left(\left(\frac{{\frac{1}{n}} - {\frac{1}{n+1}}}{2}\right) - \left(\frac{{\frac{1}{n^2}} - {\frac{1}{{(n+1)}^2}}}{3}\right) + \left(\frac{{\frac{1}{n^3}} - {\frac{1}{{(n+1)}^3}}}{4}\right) - ...\right)$
+
+is the same as 
+
+$\left(\left(\frac{{n^{(-1)}} - {(n+1)^{(-1)}}}{2}\right) - \left(\frac{{{n^{(-2)}} - {{(n+1)}^{(-2)}}}}{3}\right) + \left(\frac{{{n^{(-3)}}} - {{{(n+1)}^{(-3)}}}}{4}\right) - ...\right)$
+
+we can apply the negative of this theorem ($({n}^k) - {n+1}^k = -k(n-\epsilon)^{k-1}$)
+
+to rewrite this as 
+
+$\left(\left(-(-1){(n-\epsilon)}^{(-2)}\right) - \left(-(-2)(n-\epsilon)^{(-3)}\right) + \left((-(-3)(n-\epsilon)^{(-4)}\right) - ...\right)$
+
+which simplifies to
+
+$\left(\left((1){(n-\epsilon)}^{(-2)}\right) - \left((2)(n-\epsilon)^{(-3)}\right) + \left(((3)(n-\epsilon)^{(-4)}\right) - ...\right)$
+
+now if we're being highly rigourous, we should write a more formal proof to 
+find some value of $n_0$ and then prove algebraically that even with variance in 
+$\epsilon$ the sum will always end up being positive (thus proving that after
+that value of $n_0$), f(n) is always increasing. We could then plug in f($n_0$) to
+get a lower bound for ${(1 + \frac{1}{787898})}^{(787898)}$
+
+However, that's a lot of work, so if we just say $n_0$ = 10, then the 
+lowest possible value of the first term is $\frac{1}{100}$ (if we make $\epsilon = 0$)
+while the highest absolute value of the second term is $\frac{2}{729}$ if we make $\epsilon = 1$,
+and the exponential nature of each alternating sum means that all the terms except the first one 
+end up being irrelevant. this means we can assume ${(1 + \frac{1}{n})}^{(n)}$ is always increasing
+for n > 10, so ${(1 + \frac{1}{787898})}^{(787898)} > {(1 + \frac{1}{10})}^{(10)}$
+
+or 
+
+${(1 + \frac{1}{787898})}^{(787898)} > 2.59$
+
+anyways
+
+rewriting ${(1 + \frac{1}{787898})}^{(787898n)}$ as $\left({{(1 + \frac{1}{787898})}^{(787898)}}\right)^n$
+
+let's us say ${(1 + \frac{1}{787898})}^{(787898n)} > 2.59^n$
+
+and of course it has to be less than $e^n$ since the limit wasn't taken to infinity (only 787898).
+
+since this is an exponential function, it's larger than $n^{1337}$ but less than $e^{(2n)}$:
+
+
+\[
+\left\{
+\begin{aligned}
+& \Theta(1): [\pi, \sum_{i=2}^{n} \frac{2}{i^2 - 1}],\\
+& \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],\\
+& \Theta(\lg^* n): [\lg^* n/2]\\
+& \Theta(2^{\lg^*n}): [2^{\lg^*n})],\\
+& \Theta(\lg^{(9001)} n): [\lg^{(9001)} n)],\\
+& \Theta(\lg n): [n^{({\lg \lg n})/({\lg n})}],\\
+& \Omega(\lg n) + \mathcal{O}(n): [({(\lg n)}^{\lg^*{n}})],\\
+& \Theta(n\lg \lg n): [n\lg \lg n],\\
+& \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],\\
+& \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}],\\ 
+& \Theta(n^{1337}): [n^{1337}],\\
+& \Omega(2.59^n) + \mathcal{O}(e^n): [{(1 + \frac{1}{787898})}^{(787898n)}],\\
+& \Theta(e^{2n}): [e^{2n}],\\
+& \Omega(n^{n/2}) + \mathcal{O}(n^n): [n!],\\
+& \Theta(n^{2n}): [n^{2n}],
+\end{aligned}
+\right\}
+\]\\
+
+
+888888888888888888888888888888888888888 
 \[
 \left\{
 \begin{aligned}
