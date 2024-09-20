@@ -1227,6 +1227,95 @@ since this is an exponential function, it's larger than $n^{1337}$ but less than
 \right\}
 \]\\
 
+ok the next ones shouldn't be nearly as long
+
+$n^{\lg \lg n}$ -> $n = 2^k$ or $k = \lg n$
+
+$n^{\lg \lg n} = {({2}^k)}^{\lg \lg {({2}^k)}} = {({2}^k)}^{\lg k} = {({2}^{(\lg k)})}^{k} = k^k = {(\lg n)}^{(\lg n)}$
+
+this is clearly greater than just $\lg n$ since for large values of n, $\lg n$ will become a large exponential
+
+take the limit: $\lim_{n \to \infty} \frac{{{(\lg n)}^{(\lg n)}}}{n^a}$
+
+where a is a positive constant.
+
+now make the substitution n = $2^k$
+
+now we have:
+
+$\lim_{k \to \infty} \frac{{{k}^{k}}}{2^{(k \cdot a)}}$
+
+and $n^n >> 2^{(an)}$ (this is just a slight variation of the theorem $k^{n} << n^{a*n}$,
+rewrite $2^{(an)}$ as ${(2^{(a)})}^n$ and set k = $2^a$)
+
+this means that ${(\lg n)}^{(\lg n)} >> n^a$
+
+alternatively, you could have just started with $n^{\lg \lg n}$ and said that 
+for any positive constant a, n would eventually grow larger enough the $\lg \lg n > ka$,
+for any constant k greater than one, which would make $n^{\lg \lg n} = \Omega(n^{(ka)}) >> n^a$
+
+what about $b^n$ where b > 1?
+
+$\lim_{n \to \infty} \frac{{{(\lg n)}^{(\lg n)}}}{b^n}$
+
+substitute n = $2^k$
+
+$\lim_{k \to \infty} \frac{{k}^{k}}{b^{{(2)}^k}}$
+
+take $\lg$ of this limit. if the two functions are asymptotically equivalent, the 
+limit will converge to some constant and the $\lg$ will be constant as well.
+if they aren't then the limit will converge to 0 and the $\lg$ will go to -infinity
+or the limit will diverge and the $\lg$ will diverge as well.
+
+$\lim_{k \to \infty} \lg \left(\frac{{k}^{k}}{b^{{(2)}^k}}\right)$ = 
+
+$\lim_{k \to \infty} \lg {k}^{k} - \lg {b^{{(2)}^k}}$ =
+
+$\lim_{k \to \infty} k \cdot \lg {k} - {(2)}^k \cdot \lg {b}$ 
+
+and $k \cdot \lg {k} << k \cdot k = k^2$
+
+so we can say $\lim_{k \to \infty} k \cdot \lg {k} - {(2)}^k \cdot \lg {b} < \lim_{k \to \infty} k^2 - {(2)}^k \cdot \lg {b}$ 
+
+and exponential functions grow faster than polynomial ones, so 
+
+$\lim_{k \to \infty} k^2 - {(2)}^k \cdot \lg {b} = -\infty $
+
+which means
+
+$\lim_{k \to \infty} \lg \left(\frac{{k}^{k}}{b^{{(2)}^k}}\right)$ = $-\infty$
+
+which means the original limit went to 0:
+
+$\lim_{n \to \infty} \frac{{{(\lg n)}^{(\lg n)}}}{b^n}$ = 0
+
+so $n^{\lg \lg n}$ << $b^n$
+
+this is enough to put it in the glossary. 
+it will be after $n^{1337}$ but before $2.59^n$
+
+\[
+\left\{
+\begin{aligned}
+& \Theta(1): [\pi, \sum_{i=2}^{n} \frac{2}{i^2 - 1}],\\
+& \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],\\
+& \Theta(\lg^* n): [\lg^* n/2]\\
+& \Theta(2^{\lg^*n}): [2^{\lg^*n})],\\
+& \Theta(\lg^{(9001)} n): [\lg^{(9001)} n)],\\
+& \Theta(\lg n): [n^{({\lg \lg n})/({\lg n})}],\\
+& \Omega(\lg n) + \mathcal{O}(n): [({(\lg n)}^{\lg^*{n}})],\\
+& \Theta(n\lg \lg n): [n\lg \lg n],\\
+& \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],\\
+& \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}],\\ 
+& \Theta(n^{1337}): [n^{1337}],\\
+& \Omega(n^a) + \mathcal{O}(b^n:\,\, b > 1): [n^{\lg \lg n}],\\
+& \Omega(2.59^n) + \mathcal{O}(e^n): [{(1 + \frac{1}{787898})}^{(787898n)}],\\
+& \Theta(e^{2n}): [e^{2n}],\\
+& \Omega(n^{n/2}) + \mathcal{O}(n^n): [n!],\\
+& \Theta(n^{2n}): [n^{2n}],
+\end{aligned}
+\right\}
+\]\\
 
 888888888888888888888888888888888888888 
 \[
