@@ -599,7 +599,7 @@ as a result, the ordering will look like this:\\
 \begin{aligned}
 & \Theta(1): [\pi],
 & \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
-& \quad \Theta(2^{\lg^*n})): [2^{\lg^*n})],
+& \quad \Theta(2^{\lg^*n}): [2^{\lg^*n})],
 \end{aligned}
 \right\}
 \]\\
@@ -608,6 +608,19 @@ The next smallest function asymptotically is going to be $\lg^{(9001)} n$
 this is because every other simplified function is at least $\Omega(\lg n)$,
 since $\lg{f(n)} << f(n)$ when f(n) increases without bound, 
 $\lg^{(9001)} n << lg^{(9000)} n << lg^{(8999)} n << ... << \lg (\lg n) << \lg n$ 
+
+now you may be wondering how we know that $\lg^{(9001)} n >> 2^{\lg^*n}$.
+
+We can prove this by setting $n = {}^k 2 = 2^{2^{2^{\cdot^{\cdot^{\cdot 2}}}}}$ with k
+2s in total on the tower of 2.
+
+Then $\lg^*n = k$ (this is basically the definition of $\lg^*$)
+
+We can also prove that ${}^k 2 >> 2^n$
+
+
+
+if we set $k_0 = 9001$
 
 The next smallest function asymptotically is going to be either
 $n \lg \lg n$ or ${(\lg n)}^{\lg^*{n}}$
