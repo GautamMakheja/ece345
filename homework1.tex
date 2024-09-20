@@ -521,8 +521,32 @@ This is already in its most simplified form\\
 \right\}
 \]\\
 
+The rule I'm using to 
+determine whether a function is already in its big theta form is 
+this:\\
+
+"If a function is formed entirely of subfunctions from different 
+asymptotic bounds, and those functions do not have the capacity
+to cancel each other, then the function is in its most simplified 
+asymptotic form."
+
+For example, $e^{2n}$ is in its most simplified form because it's 
+formed of a polynomial function (2n) 
+nested inside an exponential function ($e^n$).
+polynomial functions and exponential functions don't have the capacity
+to cancel when nested, so this must be fully simplified.\\ 
+
+As another example of a fully simplified function: $nlgn$. It's formed
+from the product of a polynomial function and a logarithmic function, and
+these functions cannot cancel in a product, so it must already be simplified.\\
+
+However, I cannot assume a function such as $\lg 5^n$ is in its most 
+simplified form, because logarithmic functions and exponential functions
+have the capacity to cancel, out when nested together, so further 
+simplification must occur\\
+
 To save time, I'm going to add all the functions that are already 
-equivalent to their big theta forms:\\
+equivalent to their big theta forms:
 
 \[
 \left\{
@@ -537,9 +561,8 @@ equivalent to their big theta forms:\\
 & \quad \Theta(\lg^*2^n): [\lg^*2^n],
 & \quad \Theta(e^{2n}): [e^{2n}],\\
 & \Theta(n^{1337}): [n^{1337}],
-& \quad \Theta(\lg^*{n/2}): [\lg^*{n/2}],
-& \quad \Theta(2^{\lg^*{n}}): [2^{\lg^*{n}}],\\
-& \Theta({\lg n}^{\lg^*{n}}): [{\lg n}^{\lg^*{n}}],
+& \quad \Theta(2^{\lg^*{n}}): [2^{\lg^*{n}}],
+& \quad \Theta({\lg n}^{\lg^*{n}}): [{\lg n}^{\lg^*{n}}],
 \end{aligned}
 \right\}
 \]\\
@@ -564,13 +587,23 @@ is $\Theta(\lg^*n)$. We have four relevant Theta functions here:
 
 $\Theta(\lg(\lg^*n))$\\
 $\Theta(\lg^*2^n)$\\
-$\Theta(\lg^*{n/2})$\\
-$\Theta(2^{\lg^*n})$
+$\Theta(2^{\lg^*n})$\\\\
 
-while we do have the tight bound $\Theta({\lg n}^{\lg^*n})$,
-this function is clearly $\Omega(\lg n)$ due to the fact that even 
-if we treat $lg^*n$ as a constant value, it will still be a constant
-greater than 1. 
+let's assume $n = {}^k 2 = 2^{2^{2^{\cdot^{\cdot^{\cdot 2}}}}}$ with k
+2s in total on the tower of 2
+
+then $\lg^*n = k$ (this is basically the definition of $\lg^*$)
+
+As a result, if $\lg^*n$ = k, then 
+
+$\lg^*2^n = \lg^*{2^{{}^k 2}} = \lg^*{2^{2^{2^{2^{\cdot^{\cdot^{\cdot 2}}}}}}}$ with (k + 1) 2s
+
+which evaluates to just k+1, or $\lg^*n + 1$.
+
+since for any value of n, $\lg^*{2^n}$ is only $\lg^*n + 1$, we can say
+that $\lg^*{2^n} = \Theta(\lg^*{n})$
+
+
 
 \[
 \begin{aligned}
