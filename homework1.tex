@@ -406,6 +406,54 @@ I would also like to begin by proving $k^{n} << n^{n}$
 
 \end{proof}
 
+Let's first examine $n^{4.5} - (n - 1)^{4.5}$\\
+
+This is a specific case of the general function $n^{k} - (n - 1)^{k}$
+where k is a nonzero constant.\\
+
+By the mean value theorem, if f(x) is continuous and 
+continuously differentiable over an interval, then 
+$f(x) - f(x - 1) = 1 * f'(x - \epsilon)$ where $0 < \epsilon < 1$\\
+
+And we know from calculus that:
+
+$f(n) = n^{k} \implies f'(x) = kn^{k-1}$
+
+Therefore:\\ 
+
+$n^{k} - (n - 1)^{k} = k(n - \epsilon)^{k-1}$\\
+
+We can also show that if a is any constant: 
+
+\begin{align*}
+\lim_{n \to \infty} \frac{n^{k}}{(n-a)^{k}} = 
+\lim_{n \to \infty} (\frac{n}{(n-a)})^{k} = 
+(\lim_{n \to \infty} \frac{n}{(n-a)})^{k} = 
+(\lim_{n \to \infty} \frac{\frac{d}{dn}n}{\frac{d}{dn}(n-a)})^{k} = 
+(1)^{k} = 
+1
+\end{align*}
+
+which means that if f(n) is a polynomial function, f(n-a) and f(n)
+are asymptotically equivalent.\\
+
+putting this all together ($0 < \epsilon < 1$):
+
+\begin{align*}
+n^{k} - (n - 1)^{k} = 
+k(n-\epsilon)^{k - 1} =
+4.5\Theta(n^{k - 1}) = 
+\Theta(n^{k - 1})
+\end{align*}
+
+Our example is just the case when k = 4.5 so
+
+$n^{4.5} - (n - 1)^{4.5} = \Theta(n^{3.5})$
+
+so we have our first category:
+
+$\Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}]$
+
 \newpage
 \clearpage
 
