@@ -582,7 +582,7 @@ $\Theta(1)$ comes first:
 \]
 
 then, the next growth rate in terms of asymptotic size after $\Theta(1)$
-is $\Theta(\lg^*n)$. We have two relevant Theta functions here: 
+is $\Theta(\lg^*n)$ (we'll verify this later). We have two relevant Theta functions here: 
 
 $\Theta(\lg(\lg^*n))$\\
 $\Theta(2^{\lg^*n})$\\
@@ -616,7 +616,30 @@ We can prove this by setting $n = {}^k 2 = 2^{2^{2^{\cdot^{\cdot^{\cdot 2}}}}}$ 
 
 Then $\lg^*n = k$ (this is basically the definition of $\lg^*$)
 
-We can also prove that ${}^k 2 >> 2^n$
+We can also prove that ${}^n 2 >> 2^n$
+
+\begin{proof}
+Induction:\\
+
+Base Case: $n_0 = 3$:\\
+$2^n = 2^3 = 8$\\
+${}^n 2 = 2^{2^2} = 2^4 = 16$\\
+16 > 8\\
+
+Inductive Case: ${}^n 2 > 2^n$\\
+${}^{(n+1)} 2 = 2^{({}^n 2)}$\\
+$2^{(n+1)} = 2 * 2^n$\\
+
+for large values of n, $2^n >> 2n$,
+
+and we know ${}^n 2 > 2^n$, so\\
+
+$\lim_{n \to \infty} \frac{2^{({}^n 2)}}{2*2^n}$ >
+$\lim_{n \to \infty} \frac{2^{2^n}}{2*2^n}$ = 0
+
+so ${}^n 2 >> 2^n$
+
+\end{proof}
 
 
 
