@@ -561,7 +561,7 @@ equivalent to their big theta forms:
 & \quad \Theta(e^{2n}): [e^{2n}],\\
 & \Theta(n^{1337}): [n^{1337}],
 & \quad \Theta(2^{\lg^*{n}}): [2^{\lg^*{n}}],
-& \quad \Theta({\lg n}^{\lg^*{n}}): [{\lg n}^{\lg^*{n}}],
+& \quad \Theta({(\lg n)}^{\lg^*{n}}): [{(\lg n)}^{\lg^*{n}}],
 \end{aligned}
 \right\}
 \]\\
@@ -599,10 +599,21 @@ as a result, the ordering will look like this:\\
 \begin{aligned}
 & \Theta(1): [\pi],
 & \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
-& \quad \Theta(\lg^*2^n): [\lg^*2^n],
+& \quad \Theta(2^{\lg^*n})): [2^{\lg^*n})],
 \end{aligned}
 \right\}
 \]\\
+
+The next smallest function asymptotically is going to be $\lg^{(9001)} n$
+this is because every other simplified function is at least $\Omega(\lg n)$,
+since $\lg{f(n)} << f(n)$ when f(n) increases without bound, 
+$\lg^{(9001)} n << lg^{(9000)} n << lg^{(8999)} n << ... << \lg (\lg n) << \lg n$ 
+
+The next smallest function asymptotically is going to be either
+$n \lg \lg n$ or ${(\lg n)}^{\lg^*{n}}$
+
+The reasoning is fairly simple. Every other function on this list 
+has some component that makes it at least polynomial time
 
 \[
 \left\{
@@ -617,7 +628,7 @@ as a result, the ordering will look like this:\\
 & \quad \Theta(e^{2n}): [e^{2n}],\\
 & \Theta(n^{1337}): [n^{1337}],
 & \quad \Theta(2^{\lg^*{n}}): [2^{\lg^*{n}}],
-& \quad \Theta({\lg n}^{\lg^*{n}}): [{\lg n}^{\lg^*{n}}],
+& \quad \Theta({(\lg n)}^{\lg^*{n}}): [{(\lg n)}^{\lg^*{n}}],
 \end{aligned}
 \right\}
 \]\\
