@@ -373,7 +373,7 @@ I will be using these properties as provided in textbook section 3.3
 (c is a constant, k is a constant greater than 1):\\\\
 $c << \lg^*n << ({\lg n})^c << n^{c} << k^{n}$
 
-I would also like to begin by proving $k^{n} << n^{n}$
+I would also like to begin by proving that for a > 0, $k^{n} << n^{a*n}$
 
 \begin{proof}
     substitute: $n = k^x$ where x is a positive variable
@@ -384,23 +384,24 @@ I would also like to begin by proving $k^{n} << n^{n}$
     
     \noindent \[
     \log_k n \to \infty,  
-    \quad 1 - \log_k n \to -\infty, 
-    \quad n(1 - \log_k n) \to -\infty
+    \quad 1 - a*\log_k n \to -\infty, 
+    \quad n(1 - a*\log_k n) \to -\infty
     \]
+
+    for any positive constant a\\
 
     the proof is as follows:
 
     \begin{align*}
-        &\lim_{n \to \infty} \frac{k^{n}}{n^{n}} = 
-        \lim_{x \to \infty} \frac{k^{k^{x}}}{{(k^x)}^{k^{x}}} = 
-        \lim_{x \to \infty} \frac{k^{k^{x}}}{k^{x{k^{x}}}} = 
-        \lim_{x \to \infty} \frac{1}{k^{({x{k^{x}}} - {k^x})}} = \\
-        &\lim_{x \to \infty} \frac{1}{k^{{k^{x}({x} - 1)}}} = 
-        \lim_{x \to \infty} \frac{1}{k^{{-k^{x}(1 - {x})}}} = 
-        \lim_{x \to \infty} {k^{{k^{x}(1 - {x})}}} = 
-        \lim_{n \to \infty} {k^{{n(1 - \log_k n)}}} = \\
-        &\lim_{n \to \infty} {k^{{n(1 - \log_k n)}}} = 
-        \lim_{m \to -\infty} {k^{m}} = 0
+        &\lim_{n \to \infty} \frac{k^{n}}{n^{a*n}} = 
+        \lim_{x \to \infty} \frac{k^{k^{x}}}{{(k^x)}^{a*k^{x}}} = 
+        \lim_{x \to \infty} \frac{k^{k^{x}}}{k^{x{a*k^{x}}}} = 
+        \lim_{x \to \infty} \frac{1}{k^{({x{a*k^{x}}} - {k^x})}} = \\
+        &\lim_{x \to \infty} \frac{1}{k^{{k^{x}(a*{x} - 1)}}} = 
+        \lim_{x \to \infty} \frac{1}{k^{{-k^{x}(1 - a*{x})}}} = 
+        \lim_{x \to \infty} {k^{{k^{x}(1 - a*{x})}}} = 
+        \lim_{n \to \infty} {k^{{n(1 - a*\log_k n)}}} = \\
+        &\lim_{m \to -\infty} {k^{m}} = 0
     \end{align*} 
 
     so $k^n << n^n$
@@ -650,6 +651,17 @@ function has, eventually the function with the higher growth rate will dominate)
 
 ${}^{(k - 9001)} 2 >> k =lg^*n$\\\\
 
+\[
+\left\{
+\begin{aligned}
+& \Theta(1): [\pi],
+& \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
+& \quad \Theta(2^{\lg^*n}): [2^{\lg^*n})],\\
+& \Theta(\lg^{(9001)} n): [\lg^{(9001)} n)],
+\end{aligned}
+\right\}
+\]\\
+
 
 The next smallest function asymptotically is going to be
 ${(\lg n)}^{\lg^*{n}}$ (which, just based off inspection, has to be $\Omega(\lg n)$ for large n)
@@ -710,6 +722,7 @@ So now we have:
 & \Theta(1): [\pi],
 & \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
 & \quad \Theta(2^{\lg^*n}): [2^{\lg^*n})],\\
+& \Theta(\lg^{(9001)} n): [\lg^{(9001)} n)],
 & \mathcal{O}(n)+\Omega(\lg n): [({(\lg n)}^{\lg^*{n}})],
 \end{aligned}
 \right\}
@@ -727,6 +740,7 @@ list has size $n^{1.5}$
 & \Theta(1): [\pi],
 & \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
 & \quad \Theta(2^{\lg^*n}): [2^{\lg^*n})],\\
+& \Theta(\lg^{(9001)} n): [\lg^{(9001)} n)],
 & \mathcal{O}(n)+\Omega(\lg n): [({(\lg n)}^{\lg^*{n}})],
 & \quad \Theta(n\lg \lg n): [n\lg \lg n],
 \end{aligned}
@@ -742,11 +756,12 @@ $n^a >> n^b$ iff $a > b$
 & \Theta(1): [\pi],
 & \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
 & \quad \Theta(2^{\lg^*n}): [2^{\lg^*n})],\\
-& \mathcal{O}(n)+\Omega(\lg n): [({(\lg n)}^{\lg^*{n}})],
-& \quad \Theta(n\lg \lg n): [n\lg \lg n],
-& \quad \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],\\
-& \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}], 
-& \Theta(n^{1337}): [n^{1337}],
+& \Theta(\lg^{(9001)} n): [\lg^{(9001)} n)],
+& \quad \mathcal{O}(n)+\Omega(\lg n): [({(\lg n)}^{\lg^*{n}})],
+& \quad \Theta(n\lg \lg n): [n\lg \lg n],\\
+& \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],
+& \quad \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}], 
+& \quad\Theta(n^{1337}): [n^{1337}],
 \end{aligned}
 \right\}
 \]\\
@@ -761,12 +776,37 @@ than all polynomials asymptotically:
 & \Theta(1): [\pi],
 & \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
 & \quad \Theta(2^{\lg^*n}): [2^{\lg^*n})],\\
-& \mathcal{O}(n)+\Omega(\lg n): [({(\lg n)}^{\lg^*{n}})],
-& \quad \Theta(n\lg \lg n): [n\lg \lg n],
-& \quad \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],\\
-& \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}], 
-& \Theta(n^{1337}): [n^{1337}],
-& \quad \Theta(e^{2n}): [e^{2n}],\\
+& \Theta(\lg^{(9001)} n): [\lg^{(9001)} n)],
+& \quad \mathcal{O}(n)+\Omega(\lg n): [({(\lg n)}^{\lg^*{n}})],
+& \quad \Theta(n\lg \lg n): [n\lg \lg n],\\
+& \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],
+& \quad \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}], 
+& \quad \Theta(n^{1337}): [n^{1337}],\\
+& \Theta(e^{2n}): [e^{2n}],
+\end{aligned}
+\right\}
+\]\\
+
+the next terms are gonna be the ones that take the form of $n^{an}$
+
+since we already proved those are greater than $k^n$. For now this only 
+
+includes $n^{2n}$
+
+\[
+\left\{
+\begin{aligned}
+& \Theta(1): [\pi],
+& \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
+& \quad \Theta(2^{\lg^*n}): [2^{\lg^*n})],\\
+& \Theta(\lg^{(9001)} n): [\lg^{(9001)} n)],
+& \quad \mathcal{O}(n)+\Omega(\lg n): [({(\lg n)}^{\lg^*{n}})],
+& \quad \Theta(n\lg \lg n): [n\lg \lg n],\\
+& \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],
+& \quad \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}], 
+& \quad \Theta(n^{1337}): [n^{1337}],\\
+& \Theta(e^{2n}): [e^{2n}],
+& \Theta(n^{2n}): [n^{2n}],
 \end{aligned}
 \right\}
 \]\\
