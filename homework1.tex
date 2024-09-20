@@ -571,7 +571,7 @@ to largest asymptotically when reading from left to right, and top
 to bottom\\
 
 since the smallest asymptotic growth is just a constant value,
-$\Theta(1)$ comes first:\\
+$\Theta(1)$ comes first:
 
 \[
 \left\{
@@ -579,16 +579,16 @@ $\Theta(1)$ comes first:\\
 & \Theta(1): [\pi]
 \end{aligned}
 \right\}
-\]\\
+\]
 
 then, the next growth rate in terms of asymptotic size after $\Theta(1)$
 is $\Theta(\lg^*n)$. We have two relevant Theta functions here: 
 
 $\Theta(\lg(\lg^*n))$\\
-$\Theta(2^{\lg^*n})$\\\\
+$\Theta(2^{\lg^*n})$\\
 
-However, for the other two function, $\lg^*n$ just acts as the input
-into another function, so as long as $\lg^*n$ increases without bound:\\
+Since $\lg^*n$ just acts as the input into another function, 
+so as long as $\lg^*n$ increases without bound:\\
 
 $\lg(\lg^*n) << \lg^*n$ and $2^{\lg^*n} >> \lg^*n$
 
@@ -600,6 +600,24 @@ as a result, the ordering will look like this:\\
 & \Theta(1): [\pi],
 & \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
 & \quad \Theta(\lg^*2^n): [\lg^*2^n],
+\end{aligned}
+\right\}
+\]\\
+
+\[
+\left\{
+\begin{aligned}
+& \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}], 
+& \quad \Theta(n \lg \lg n): [n \lg \lg n],
+& \quad \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],\\
+& \Theta(n^{2n}): [n^{2n}],
+& \quad \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],
+& \quad \Theta(\lg^{(9001)} n): [\lg^{(9001)} n)],\\
+& \Theta(1): [\pi],
+& \quad \Theta(e^{2n}): [e^{2n}],\\
+& \Theta(n^{1337}): [n^{1337}],
+& \quad \Theta(2^{\lg^*{n}}): [2^{\lg^*{n}}],
+& \quad \Theta({\lg n}^{\lg^*{n}}): [{\lg n}^{\lg^*{n}}],
 \end{aligned}
 \right\}
 \]\\
