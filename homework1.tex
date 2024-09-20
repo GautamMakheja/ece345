@@ -907,9 +907,6 @@ so $n^{({\lg \lg n})/({\lg n})} = \Theta(\lg n)$
 
 that puts this function between $\lg^{(9001)} n$ and ${(\lg n)}^{\lg^*{n}}$
 
-also reformatting the glossary of functions is annoying so I'm just gonna turn
-it into a straight list
-
 
 \[
 \left\{
@@ -939,7 +936,39 @@ this means
 
 $\lg^* \lg n < \lg^* n/2 < \lg^* 2^n$
 
-if $n = {}^k 2$
+if $n = {}^k 2$ (which is the same as $k = \lg^* n$):
+
+$\lg^* \lg n = lg^* \lg {}^k 2 = lg^* {}^{(k-1)} 2 = k-1 = \lg^* n - 1 = \Theta(\lg^* n)$
+
+$\lg^* 2^n = lg^* 2^{({}^k 2)} = lg^* {}^{(k+1)} 2 = k+1 = \lg^* n + 1 = \Theta(\lg^* n)$
+
+therefore, since $\lg^* n/2$ is between 2 functions with the same tight bound:
+
+$\lg^* n/2 = \Theta(\lg^* n)$
+
+which, just by inspection is between $\Theta(\lg \lg^* n)$ and $\Theta(2^{\lg^* n})$ if we 
+treat $\lg^* n$ as our input variable:
+
+\[
+\left\{
+\begin{aligned}
+& \Theta(1): [\pi],\\
+& \Theta(\lg(\lg^*n)): [\lg(\lg^*n)],\\
+& \Theta(\lg^* n): [\lg^* n/2]\\
+& \Theta(2^{\lg^*n}): [2^{\lg^*n})],\\
+& \Theta(\lg^{(9001)} n): [\lg^{(9001)} n)],\\
+& \Theta(\lg n): [n^{({\lg \lg n})/({\lg n})}],\\
+& \Omega(\lg n) + \mathcal{O}(n): [({(\lg n)}^{\lg^*{n}})],\\
+& \Theta(n\lg \lg n): [n\lg \lg n],\\
+& \Theta(n^{1.5}): [n\sqrt{\frac{n}{2}}],\\
+& \Theta(n^{3.5}): [n^{4.5} - (n - 1)^{4.5}],\\ 
+& \Theta(n^{1337}): [n^{1337}],\\
+& \Theta(e^{2n}): [e^{2n}],\\
+& \Omega(n^{n/2}) + \mathcal{O}(n^n): [n!],\\
+& \Theta(n^{2n}): [n^{2n}],
+\end{aligned}
+\right\}
+\]\\
 
 888888888888888888888888888888888888888
 \[
