@@ -1484,6 +1484,95 @@ ${(1 + \frac{1}{787898})}^{(787898n)}$ << $e^{2n}$ << $n!$ << $n^{(2n)}$
 \newpage
 \clearpage
 
+
+
+\section*{Question 4}
+
+\subsection*{a)}
+In the inductive step, the process was that
+
+\[
+\frac{a^k \cdot a^k}{a^{k-1}} = \frac{1 \cdot 1}{a^{k-1}} \neq \frac{1 \cdot 1}{1} \text{ as } a^{k-1} = \frac{1}{a}
+\]
+
+This then makes \(a^{k+1} = \frac{1 \cdot 1}{\frac{1}{a}} = a\), which can be any non-zero number such as 5, which gives us a value greater than 1, for \(n \geq 1\), thus violating our hypothesis that \(P(k)\) is true for all integers \(k\), thus \(P(n)\) is false.
+
+\subsection*{b)}
+\(P(1)\) is not true, as \(\frac{3}{2} - 1 = \frac{1}{2}\) (RHS)
+
+but 
+
+\[
+\frac{1}{(1-1)(1)} = \frac{1}{0} = \text{undefined} \text{ (LHS)}
+\]
+
+Since LHS is not equal to RHS, the \(P(1)\) statement does not hold, thus \(P(n)\) is false.
+
+\section*{Question 5}
+
+\subsection*{a)}
+Given that each card would be unique, having a different rank and a suit, this means that the total number of unique cards would be 52.
+
+Since in the above case, the order of the cards picked does not matter, we can safely say that the number of different hands would be:
+
+\[
+\binom{52}{5} = 2598960
+\]
+
+\subsection*{b)}
+Let us assume that the first card can be any rank.
+
+\[
+P(\text{any rank}) = 1
+\]
+
+Thus, the second card has to be the same as the previous one.
+
+\[
+P(\text{card is same rank} \mid \text{previous}) = \frac{3}{51}
+\]
+
+\[
+P(\text{card is same rank} \mid \text{previous}) = \frac{2}{50}
+\]
+
+\[
+P(\text{card is same rank} \mid \text{previous}) = \frac{1}{49}
+\]
+
+\[
+P(\text{any other card from deck}) = 1
+\]
+
+\[
+P(\text{four cards in a row}) = \left(1\right) \left(\frac{3}{51}\right) \left(\frac{2}{50}\right) \left(\frac{1}{49}\right) = \frac{1}{20825}
+\]
+
+\subsection*{c)}
+\[
+P(\text{any rank}) = 1
+\]
+
+\[
+P(\text{card is same rank} \mid \text{previous}) = \frac{3}{51}
+\]
+
+\[
+P(\text{card is same rank} \mid \text{previous}) = \frac{2}{50}
+\]
+
+\[
+P(\text{any other rank that is not previous} \mid \text{previous}) = \frac{2}{50}
+\]
+
+\[
+P(\text{same card as previous} \mid \text{previous}) = \frac{3}{48}
+\]
+
+\[
+P(\text{full house}) = \frac{3}{20825}
+\]
+
 \section{Question 6 Graphs, Proof by Contradiction}
  
     \begin{proof}
